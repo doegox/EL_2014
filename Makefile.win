@@ -1,0 +1,114 @@
+# Project: Projet1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = ALG-FST.o API-FST.o BE.o Dbg.o ENCDEC.o ENCKEYS.o ENCMAC.o ERREUR.o HASHCOMP.o LCD.o MACCOMP.o main.o MCBC.o mod_cand.o mod_frau.o mod_grap.o mod_hwd.o mod_lang.o mod_list.o mod_msg.o mod_pwd.o mod_scre.o mod_scru.o mod_view.o mod_vote.o param.o PSSWD.o sequ_scr.o VOTE.o $(RES)
+LINKOBJ  = ALG-FST.o API-FST.o BE.o Dbg.o ENCDEC.o ENCKEYS.o ENCMAC.o ERREUR.o HASHCOMP.o LCD.o MACCOMP.o main.o MCBC.o mod_cand.o mod_frau.o mod_grap.o mod_hwd.o mod_lang.o mod_list.o mod_msg.o mod_pwd.o mod_scre.o mod_scru.o mod_view.o mod_vote.o param.o PSSWD.o sequ_scr.o VOTE.o $(RES)
+LIBS =   
+INCS = 
+CXXINCS = 
+BIN  = mav.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before mav.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "mav.exe" $(LIBS)
+
+ALG-FST.o: ALG-FST.C
+	$(CC) -c ALG-FST.C -o ALG-FST.o $(CFLAGS)
+
+API-FST.o: API-FST.C
+	$(CC) -c API-FST.C -o API-FST.o $(CFLAGS)
+
+BE.o: BE.C
+	$(CC) -c BE.C -o BE.o $(CFLAGS)
+
+Dbg.o: Dbg.c
+	$(CC) -c Dbg.c -o Dbg.o $(CFLAGS)
+
+ENCDEC.o: ENCDEC.C
+	$(CC) -c ENCDEC.C -o ENCDEC.o $(CFLAGS)
+
+ENCKEYS.o: ENCKEYS.C
+	$(CC) -c ENCKEYS.C -o ENCKEYS.o $(CFLAGS)
+
+ENCMAC.o: ENCMAC.C
+	$(CC) -c ENCMAC.C -o ENCMAC.o $(CFLAGS)
+
+ERREUR.o: ERREUR.C
+	$(CC) -c ERREUR.C -o ERREUR.o $(CFLAGS)
+
+HASHCOMP.o: HASHCOMP.C
+	$(CC) -c HASHCOMP.C -o HASHCOMP.o $(CFLAGS)
+
+LCD.o: LCD.C
+	$(CC) -c LCD.C -o LCD.o $(CFLAGS)
+
+MACCOMP.o: MACCOMP.C
+	$(CC) -c MACCOMP.C -o MACCOMP.o $(CFLAGS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+MCBC.o: MCBC.C
+	$(CC) -c MCBC.C -o MCBC.o $(CFLAGS)
+
+mod_cand.o: mod_cand.c
+	$(CC) -c mod_cand.c -o mod_cand.o $(CFLAGS)
+
+mod_frau.o: mod_frau.c
+	$(CC) -c mod_frau.c -o mod_frau.o $(CFLAGS)
+
+mod_grap.o: mod_grap.c
+	$(CC) -c mod_grap.c -o mod_grap.o $(CFLAGS)
+
+mod_hwd.o: mod_hwd.c
+	$(CC) -c mod_hwd.c -o mod_hwd.o $(CFLAGS)
+
+mod_lang.o: mod_lang.c
+	$(CC) -c mod_lang.c -o mod_lang.o $(CFLAGS)
+
+mod_list.o: mod_list.c
+	$(CC) -c mod_list.c -o mod_list.o $(CFLAGS)
+
+mod_msg.o: mod_msg.c
+	$(CC) -c mod_msg.c -o mod_msg.o $(CFLAGS)
+
+mod_pwd.o: mod_pwd.c
+	$(CC) -c mod_pwd.c -o mod_pwd.o $(CFLAGS)
+
+mod_scre.o: mod_scre.c
+	$(CC) -c mod_scre.c -o mod_scre.o $(CFLAGS)
+
+mod_scru.o: mod_scru.c
+	$(CC) -c mod_scru.c -o mod_scru.o $(CFLAGS)
+
+mod_view.o: mod_view.c
+	$(CC) -c mod_view.c -o mod_view.o $(CFLAGS)
+
+mod_vote.o: mod_vote.c
+	$(CC) -c mod_vote.c -o mod_vote.o $(CFLAGS)
+
+param.o: param.c
+	$(CC) -c param.c -o param.o $(CFLAGS)
+
+PSSWD.o: PSSWD.C
+	$(CC) -c PSSWD.C -o PSSWD.o $(CFLAGS)
+
+sequ_scr.o: sequ_scr.c
+	$(CC) -c sequ_scr.c -o sequ_scr.o $(CFLAGS)
+
+VOTE.o: VOTE.C
+	$(CC) -c VOTE.C -o VOTE.o $(CFLAGS)
