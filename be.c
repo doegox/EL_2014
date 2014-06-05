@@ -127,7 +127,7 @@ int Crc_Rijndael(void)
   if(!ret)
 	return(0);
 
-  strcpy(source,"A:");
+  strcpy(source,"FLOPPY/");
 #ifdef EL2014
   /* << el2007 */
   strcat(source,BE);
@@ -160,10 +160,10 @@ Rfloppy(char *msg)
 {
   int fd;
 
-  strcpy(floppy,"a:");
+  strcpy(floppy,"FLOPPY/");
   strcat(floppy,"Floppy.be");
 
-  if((fd = open( floppy, O_BINARY | O_RDWR)) == -1)
+  if((fd = open( floppy, O_RDWR )) == -1)
 	  return(0);
   read(fd,msg,80);
   close(fd);
@@ -178,7 +178,7 @@ int Rfile(char *fichier)
   int i, j;
 
 
-  if((fd = open( fichier, O_RDWR | O_BINARY,0x0100 | 0x0080)) == -1)
+  if((fd = open( fichier, O_RDWR,0x0100 | 0x0080)) == -1)
     return(0);
 
   handel_Read = read(fd,Bffer,64);
@@ -228,7 +228,7 @@ Remplit()
 struct ffblk fileinfo;
 
 count = 0;
-strcpy(source,"a:");
+strcpy(source,"FLOPPY/");
 strcat(source,"*.*");
 
 /* << el2007 */
@@ -339,7 +339,7 @@ int Remplit(void)
 struct ffblk fileinfo;
 
 count = 0;
-strcpy(source,"a:");
+strcpy(source,"FLOPPY/");
 strcat(source,"*.*");
 
 if(strcmp(niveau,"3") == 0)
@@ -453,9 +453,9 @@ int CalculMac(void)
 
 	for (x = 0; x < count;x++)
 	{
-		strcpy(source,"a:");
+		strcpy(source,"FLOPPY/");
 		strcat(source,stru_fichier[x].nom);
-		fd = open(source, O_RDWR | O_BINARY,0x0100 | 0x0080);
+		fd = open(source, O_RDWR,0x0100 | 0x0080);
 		if(fd == -1)
 			return(0);
 		while((handel_Read = read(fd,Buffer,1024)) != NULL)

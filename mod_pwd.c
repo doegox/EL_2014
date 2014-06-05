@@ -198,8 +198,8 @@ void Pwd(void)
   
 
   /* looking for a:Floppy.be */
-  if(access("a:Floppy.be", 0))
-    Msg_Error_Exit("a:Floppy.be FILE ERROR");
+  if(access("FLOPPY/Floppy.be", 0))
+    Msg_Error_Exit("FLOPPY/Floppy.be FILE ERROR");
 
   /* Initialise_Rijndael */
   if(!Initialise_Rijndael())
