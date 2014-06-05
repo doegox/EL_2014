@@ -9,12 +9,12 @@ extern void my_Trace(void);
 #include "fullspec.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <io.h>
+//#include <io.h>
 #include <fcntl.h>
-#include <dos.h>
-#include <dir.h>
+//#include <dos.h>
+//#include <dir.h>
 /* << el2012 */
-#include <graphics.h>
+//#include <graphics.h>
 /* el2012 >> */
 
 #define PlainDataLen   14400
