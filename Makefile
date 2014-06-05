@@ -1,69 +1,68 @@
 # Project: Projet1
 # Makefile created by Dev-C++ 4.9.9.2
 
-CPP  = g++.exe
-CC   = gcc.exe
-WINDRES = windres.exe
+CPP  = g++
+CC   = gcc
 RES  = 
-OBJ  = ALG-FST.o API-FST.o BE.o Dbg.o ENCDEC.o ENCKEYS.o ENCMAC.o ERREUR.o HASHCOMP.o LCD.o MACCOMP.o main.o MCBC.o mod_cand.o mod_frau.o mod_grap.o mod_hwd.o mod_lang.o mod_list.o mod_msg.o mod_pwd.o mod_scre.o mod_scru.o mod_view.o mod_vote.o param.o PSSWD.o sequ_scr.o VOTE.o $(RES)
-LINKOBJ  = ALG-FST.o API-FST.o BE.o Dbg.o ENCDEC.o ENCKEYS.o ENCMAC.o ERREUR.o HASHCOMP.o LCD.o MACCOMP.o main.o MCBC.o mod_cand.o mod_frau.o mod_grap.o mod_hwd.o mod_lang.o mod_list.o mod_msg.o mod_pwd.o mod_scre.o mod_scru.o mod_view.o mod_vote.o param.o PSSWD.o sequ_scr.o VOTE.o $(RES)
+OBJ  = alg-fst.o api-fst.o be.o dbg.o encdec.o enckeys.o encmac.o erreur.o hashcomp.o lcd.o maccomp.o main.o mcbc.o mod_cand.o mod_frau.o mod_grap.o mod_hwd.o mod_lang.o mod_list.o mod_msg.o mod_pwd.o mod_scre.o mod_scru.o mod_view.o mod_vote.o param.o psswd.o sequ_scr.o vote.o $(RES)
+LINKOBJ  = alg-fst.o api-fst.o be.o dbg.o encdec.o enckeys.o encmac.o erreur.o hashcomp.o lcd.o maccomp.o main.o mcbc.o mod_cand.o mod_frau.o mod_grap.o mod_hwd.o mod_lang.o mod_list.o mod_msg.o mod_pwd.o mod_scre.o mod_scru.o mod_view.o mod_vote.o param.o psswd.o sequ_scr.o vote.o $(RES)
 LIBS =   
 INCS = 
 CXXINCS = 
-BIN  = mav.exe
+BIN  = mav
 CXXFLAGS = $(CXXINCS)  
 CFLAGS = $(INCS)  
 RM = rm -f
 
 .PHONY: all all-before all-after clean clean-custom
 
-all: all-before mav.exe all-after
+all: all-before mav all-after
 
 
 clean: clean-custom
 	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)
-	$(CC) $(LINKOBJ) -o "mav.exe" $(LIBS)
+	$(CC) $(LINKOBJ) -o "mav" $(LIBS)
 
-ALG-FST.o: ALG-FST.C
-	$(CC) -c ALG-FST.C -o ALG-FST.o $(CFLAGS)
+alg-fst.o: alg-fst.c
+	$(CC) -c alg-fst.c -o alg-fst.o $(CFLAGS)
 
-API-FST.o: API-FST.C
-	$(CC) -c API-FST.C -o API-FST.o $(CFLAGS)
+api-fst.o: api-fst.c
+	$(CC) -c api-fst.c -o api-fst.o $(CFLAGS)
 
-BE.o: BE.C
-	$(CC) -c BE.C -o BE.o $(CFLAGS)
+be.o: be.c
+	$(CC) -c be.c -o be.o $(CFLAGS)
 
-Dbg.o: Dbg.c
-	$(CC) -c Dbg.c -o Dbg.o $(CFLAGS)
+dbg.o: dbg.c
+	$(CC) -c dbg.c -o dbg.o $(CFLAGS)
 
-ENCDEC.o: ENCDEC.C
-	$(CC) -c ENCDEC.C -o ENCDEC.o $(CFLAGS)
+encdec.o: encdec.c
+	$(CC) -c encdec.c -o encdec.o $(CFLAGS)
 
-ENCKEYS.o: ENCKEYS.C
-	$(CC) -c ENCKEYS.C -o ENCKEYS.o $(CFLAGS)
+enckeys.o: enckeys.c
+	$(CC) -c enckeys.c -o enckeys.o $(CFLAGS)
 
-ENCMAC.o: ENCMAC.C
-	$(CC) -c ENCMAC.C -o ENCMAC.o $(CFLAGS)
+encmac.o: encmac.c
+	$(CC) -c encmac.c -o encmac.o $(CFLAGS)
 
-ERREUR.o: ERREUR.C
-	$(CC) -c ERREUR.C -o ERREUR.o $(CFLAGS)
+erreur.o: erreur.c
+	$(CC) -c erreur.c -o erreur.o $(CFLAGS)
 
-HASHCOMP.o: HASHCOMP.C
-	$(CC) -c HASHCOMP.C -o HASHCOMP.o $(CFLAGS)
+hashcomp.o: hashcomp.c
+	$(CC) -c hashcomp.c -o hashcomp.o $(CFLAGS)
 
-LCD.o: LCD.C
-	$(CC) -c LCD.C -o LCD.o $(CFLAGS)
+lcd.o: lcd.c
+	$(CC) -c lcd.c -o lcd.o $(CFLAGS)
 
-MACCOMP.o: MACCOMP.C
-	$(CC) -c MACCOMP.C -o MACCOMP.o $(CFLAGS)
+maccomp.o: maccomp.c
+	$(CC) -c maccomp.c -o maccomp.o $(CFLAGS)
 
 main.o: main.c
 	$(CC) -c main.c -o main.o $(CFLAGS)
 
-MCBC.o: MCBC.C
-	$(CC) -c MCBC.C -o MCBC.o $(CFLAGS)
+mcbc.o: mcbc.c
+	$(CC) -c mcbc.c -o mcbc.o $(CFLAGS)
 
 mod_cand.o: mod_cand.c
 	$(CC) -c mod_cand.c -o mod_cand.o $(CFLAGS)
@@ -104,11 +103,11 @@ mod_vote.o: mod_vote.c
 param.o: param.c
 	$(CC) -c param.c -o param.o $(CFLAGS)
 
-PSSWD.o: PSSWD.C
-	$(CC) -c PSSWD.C -o PSSWD.o $(CFLAGS)
+psswd.o: psswd.c
+	$(CC) -c psswd.c -o psswd.o $(CFLAGS)
 
 sequ_scr.o: sequ_scr.c
 	$(CC) -c sequ_scr.c -o sequ_scr.o $(CFLAGS)
 
-VOTE.o: VOTE.C
-	$(CC) -c VOTE.C -o VOTE.o $(CFLAGS)
+vote.o: vote.c
+	$(CC) -c vote.c -o vote.o $(CFLAGS)
