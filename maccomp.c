@@ -1,4 +1,4 @@
-#include "fullSpec.h"
+#include "fullspec.h"
 
 /* <encryptBlock> encrypts a 16-byte block. */
 /* <return code>  an integer, zero means ok, negative refers to an error. */

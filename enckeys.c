@@ -1,4 +1,4 @@
-#include "fullSpec.h"
+#include "fullspec.h"
 
 /* <cipherCFBInitBinary> initializes the state of the encryption/decryption engine */
 /* <return code>      an integer, zero means ok, negative means an error occurred. */

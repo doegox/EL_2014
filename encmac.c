@@ -1,4 +1,4 @@
-#include "fullSpec.h"
+#include "fullspec.h"
 
 /* <encryptAndMac> transforms the plaintext information <plainData> into ciphertext and computes the corresponding MAC value. */
 /* <return code>   an integer, negative values refer to an error code, positive values specify the length of the authenticated ciphertext. */

@@ -1,4 +1,4 @@
-#include "fullSpec.h"
+#include "fullspec.h"
 
 /* <makeKeyBinary> transforms the binary representation of a 16-byte encryption/decryption key into the form required by the Rijndael algorithm. */
 /* <return code>   an integer, zero means ok, negative means an error occurred. */

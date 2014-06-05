@@ -1,4 +1,4 @@
-#include "fullSpec.h"
+#include "fullspec.h"
 
 /* <computeIteratedHash> is a generic hash function with a parameterized security level. */
 /* <return code>         an integer, zero means ok, negative means an error occurred. */

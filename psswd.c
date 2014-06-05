@@ -1,4 +1,4 @@
-#include "fullSpec.h"
+#include "fullspec.h"
 
 /* <extendPassword> transforms a a randomly generated password consisting of a */
 /*                   zero-terminated password string of <passwordLength-1> */

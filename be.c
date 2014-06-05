@@ -6,7 +6,7 @@ extern void my_Trace(void);
 #endif
 */
 
-#include "fullSpec.h"
+#include "fullspec.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <io.h>
