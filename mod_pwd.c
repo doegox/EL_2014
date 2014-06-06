@@ -26,12 +26,12 @@ extern void my_Trace(void);
 /**************************************************************************
 INCLUDE FILES
 **************************************************************************/
-#include <bios.h>
-#include <io.h>
+//#include <bios.h>
+//#include <io.h>
 #include <fcntl.h>
-#include <alloc.h>
-#include <dos.h>
-#include <conio.h>
+//#include <alloc.h>
+//#include <dos.h>
+//#include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -41,7 +41,7 @@ INCLUDE FILES
 #include "defs.h"
 #include "fullspec.h"
 #include "libcrdrd.h"
-#include "..\LibAlrBx\LIBALRBX.H"
+#include "libalrbx.h"
 
 #ifdef EL2014
 #include "variable.h"
