@@ -28,7 +28,7 @@ INCLUDE FILES
 #include "defs.h"
 #include "cfgscrut.h"
 #include "scrutin.h"
-#include "..\CrdReade.r\LibCrdRd.h"
+#include "libcrdrd.h"
 #include "..\LibAlrBx\LIBALRBX.H"
 
 #ifdef EL2014

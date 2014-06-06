@@ -24,8 +24,8 @@ INCLUDE FILES
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "..\CrdReade.r\LibCrdRd.h"
-#include "..\LibAlrBx\LIBALRBX.H"
+#include "libcrdrd.h"
+#include "libalrbx.h"
 #include "defs.h"
 
 #ifdef EL2014
@@ -193,7 +193,7 @@ void main(int argc, char *argv[])
     /* LPCURSOR ? */
     if(!stricmp(argv[iArg], "-LPCURSOR"))
     {
-      setLPcursor(true);
+      setLPcursor(1);
       ++iArg; continue;
     }
     ++iArg; /* parameter(s) skipped */

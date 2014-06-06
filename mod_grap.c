@@ -27,7 +27,7 @@ INCLUDE FILES
 #include <time.h>
 #include <graphics.h>
 #include "defs.h"
-#include "..\CrdReade.r\LibCrdRd.h"
+#include "libcrdrd.h"
 #include "..\LibAlrBx\LIBALRBX.H"
 
 /**************************************************************************

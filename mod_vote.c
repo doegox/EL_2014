@@ -42,7 +42,7 @@ INCLUDE FILES
 #include <string.h>
 #include <time.h>
 #include <graphics.h>
-#include "..\CrdReade.r\LibCrdRd.h"
+#include "libcrdrd.h"
 #include "..\LibAlrBx\LIBALRBX.H"
 #include "defs.h"
 #include "cfgscrut.h"

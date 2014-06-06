@@ -32,7 +32,7 @@ INCLUDE FILES
 #include "defs.h"
 #include "list.h"
 #include "scrutin.h"
-#include "..\CrdReade.r\LibCrdRd.h"
+#include "libcrdrd.h"
 #include "..\LibAlrBx\LIBALRBX.H"
 #ifdef EL2014
 #include <io.h>

@@ -26,7 +26,7 @@ INCLUDE FILES
 #include <stdlib.h>
 #include <bios.h>
 #include "defs.h"
-#include "..\CrdReade.r\LibCrdRd.h"
+#include "libcrdrd.h"
 #include "..\LibAlrBx\LIBALRBX.H"
 
 /**************************************************************************
