@@ -24,12 +24,12 @@ extern void my_Trace(void);
 /**************************************************************************
 INCLUDE FILES
 **************************************************************************/
-#include <bios.h>
-#include <io.h>
+//#include <bios.h>
+//#include <io.h>
 #include <fcntl.h>
-#include <alloc.h>
-#include <dos.h>
-#include <conio.h>
+//#include <alloc.h>
+//#include <dos.h>
+//#include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -39,7 +39,7 @@ INCLUDE FILES
 #include "defs.h"
 #include "scrutin.h"
 #include "libcrdrd.h"
-#include "..\LibAlrBx\LIBALRBX.H"
+#include "libalrbx.h"
 #ifdef EL2014
 #include "variable.h"
 #include "cfgscrut.h"
@@ -92,9 +92,9 @@ void Cal_affiche(int x, int y);
 void type_ecran(int *_nb_cdt_par_colonne);
 void affiche_num_cdt(int x, int y, int k, int _iNum);
 void Garnir_param(void);
-param_Candidat(void);
+int param_Candidat(void);
 
-bmp(char *BmpName,int X,int Y,int Inverse);
+int bmp(char *BmpName,int X,int Y,int Inverse);
 #endif /* EL2014 */
 
 /**************************************************************************
@@ -1503,7 +1503,7 @@ void Garnir_param()
 /******                       blanc.c                                ******/
 /***************************************************************************/
 
-param_Candidat(void)
+int param_Candidat(void)
 {
 	
 	nbr_sup = atoi(gshScrutin[giCurrentScr].scrutin_max_supp);
@@ -1520,10 +1520,10 @@ param_Candidat(void)
 	if(nbr_sup > (nbc_col - 1))
 		Msg_Error_Exit("Trop de supplants...");
 
-#include "C_METH4.C"
+#include "c_meth4.c"
 	return(0);
 }
 
-#include "BMP.C"
+#include "bmp.c"
 
 #endif /* EL2014 */

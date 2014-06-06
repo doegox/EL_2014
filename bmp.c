@@ -10,7 +10,7 @@ typedef struct {
 	 unsigned long offset;              /* Offset to image data, bytes */
 } HEADER;
 
-bmp(char *BmpName,int X,int Y,int Inverse) /*Argv = Image name, Pos X, Pos Y */
+int bmp(char *BmpName,int X,int Y,int Inverse) /*Argv = Image name, Pos X, Pos Y */
 {
 	int i,j,Ord,Blanc,Noir,invers;
 	int goline;
@@ -71,7 +71,7 @@ bmp(char *BmpName,int X,int Y,int Inverse) /*Argv = Image name, Pos X, Pos Y */
 }
 /*************************************************************************/
 
-Inverse_Candid(int xx1,int xx2, int yy1, int yy2, int col1, int col2)
+void Inverse_Candid(int xx1,int xx2, int yy1, int yy2, int col1, int col2)
 {
 	int x,y;
 

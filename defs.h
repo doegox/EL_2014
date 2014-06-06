@@ -7,6 +7,11 @@ extern char my_msg[];
 extern void my_Trace(void);
 #endif
 
+// Phil additions:
+#define MAV_DIGIVOTE_1 1
+#define MAV_DIGIVOTE_2 2
+
+
 #ifdef TST_EL2014
 #define  TST_PASSWORD  "0000000099"
 #endif
