@@ -33,9 +33,9 @@ INCLUDE FILES
 #include "list.h"
 #include "scrutin.h"
 #include "libcrdrd.h"
-#include "..\LibAlrBx\LIBALRBX.H"
+#include "libalrbx.h"
 #ifdef EL2014
-#include <io.h>
+//#include <io.h>
 #include "variable.h"
 #endif
 /**************************************************************************
@@ -76,7 +76,7 @@ extern int   Vote_End(void);
 /******            INTEGRATION AFFICHAGE LISTES 2010                  ******/
 /***************************************************************************/
 int les_listes(void);
-testposl(int cx, int cy, int k);
+int testposl(int cx, int cy, int k);
 int selectc(void);
 int Select_Col(void);
 int Select_RLg(void);
@@ -584,7 +584,7 @@ int les_listes()
            pour éviter l'utilisation de la variable 'k' en global
          */
 
-        #include "LPARAM1.C"
+        #include "lparam1.c"
 
 #else /* EL2014 */       
 	param();
@@ -759,7 +759,7 @@ int les_listes()
 
 
 /******************** TEST POSITION CRAYON / LISTES ***********************/
-testposl(int cx, int cy, int k)
+int testposl(int cx, int cy, int k)
 {
 	if((cx > gaiPosList[k - 1][0] + 2) && (cx < gaiPosList[k - 1][1] - 2))
 	if((cy > gaiPosList[k - 1][2] + 2) && (cy < gaiPosList[k - 1][3] - 2))
