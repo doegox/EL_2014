@@ -10,6 +10,8 @@ extern void my_Trace(void);
 // Phil additions:
 #define MAV_DIGIVOTE_1 1
 #define MAV_DIGIVOTE_2 2
+#define MAV_JITES_1 3
+#define MAV_JITES_2 4
 
 
 #ifdef TST_EL2014

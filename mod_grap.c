@@ -15,12 +15,12 @@
 /**************************************************************************
 INCLUDE FILES
 **************************************************************************/
-#include <bios.h>
-#include <io.h>
+//#include <bios.h>
+//#include <io.h>
 #include <fcntl.h>
-#include <alloc.h>
-#include <dos.h>
-#include <conio.h>
+//#include <alloc.h>
+//#include <dos.h>
+//#include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -28,12 +28,12 @@ INCLUDE FILES
 #include <graphics.h>
 #include "defs.h"
 #include "libcrdrd.h"
-#include "..\LibAlrBx\LIBALRBX.H"
+#include "libalrbx.h"
 
 /**************************************************************************
 EXTERNAL VARIABLES
 **************************************************************************/
-extern int    swLPcursor;
+//extern int    swLPcursor;
 extern unsigned char gucMavType;
 
 /**************************************************************************
@@ -84,9 +84,9 @@ void Graph_Init(void)
 {
   int errorcode;
 
-  registerbgidriver(EGAVGA_driver);
-  registerbgifont(small_font);
-  registerbgifont(sansserif_font);
+  //registerbgidriver(EGAVGA_driver);
+  //registerbgifont(small_font);
+  //registerbgifont(sansserif_font);
 
   initgraph( &GraphDriver, &GraphMode, "" );
   /* read result of initialization */
@@ -163,7 +163,7 @@ void bararrondi( int x1, int y1, int x2, int y2 )
 **************************************************************************/
 int Pen_Capture(int *_iX, int *_iY)
 {
-  union REGS rin,rout;
+//  union REGS rin,rout;
   int rc = 0;
   static int stcSwClicked = 1;
 
@@ -176,55 +176,6 @@ int Pen_Capture(int *_iX, int *_iY)
     while(!Test_LightPen());
     Leds(OFF,0);
     return(-1);
-  }
-
-  if(gucMavType == MAV_JITES_1 || gucMavType == MAV_JITES_2)
-  {
-    rin.x.ax = 5;
-    rin.x.bx = 0;
-    int86(0x33,&rin,&rout);
-
-    if(rout.x.bx)
-    {
-      rin.h.ah = 4;
-      int86(0x10,&rin,&rout);
-      if(rout.h.ah)
-      {
-        (*_iX) = rout.x.bx;
-        (*_iY) = rout.x.cx;
-        rc = 1;
-      }
-
-      CheckQueue();
-    }
-  }
-  else /* Digivote */
-  {
-    /* Light Pen used ? */
-    rin.x.ax = 3;
-    int86(0x33,&rin,&rout);
-    if(!(rout.x.bx&7)) /* No "button" pressed (cfr Mouse management) */
-    {
-      stcSwClicked = 1;
-    }
-    else
-    {
-      if(stcSwClicked)
-      {
-        stcSwClicked = 0;
-
-        rin.h.ah = 4;
-        int86(0x10,&rin,&rout);
-        if(rout.h.ah)
-        {
-          (*_iX) = rout.x.bx;
-          (*_iY) = rout.x.cx;
-          rc = 1;
-        }
-
-        CheckQueue();
-      }
-    }
   }
 
   giKlavier = ButtonPressed(0);
