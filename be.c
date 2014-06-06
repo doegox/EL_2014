@@ -451,7 +451,7 @@ int CalculMac(void)
 		fd = open(source, O_RDWR,0x0100 | 0x0080);
 		if(fd == -1)
 			return(0);
-		while((handel_Read = read(fd,Buffer,1024)) != NULL)
+		while((handel_Read = read(fd,Buffer,1024)) != '\0')
 		{
 			computeMac (macResult, macResultLen, Buffer, handel_Read, decryptedMacKey);
 			for (i = 0; i < macResultLen;i++,j++)
