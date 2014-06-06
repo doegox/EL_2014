@@ -4,8 +4,8 @@
 CPP  = g++
 CC   = gcc
 RES  = 
-OBJ  = alg-fst.o api-fst.o be.o encdec.o enckeys.o encmac.o hashcomp.o lcd.o maccomp.o main.o mcbc.o mod_cand.o mod_grap.o mod_hwd.o mod_lang.o mod_list.o mod_msg.o mod_pwd.o mod_scre.o mod_scru.o mod_view.o mod_vote.o param.o psswd.o sequ_scr.o vote.o $(RES)
-LINKOBJ  = alg-fst.o api-fst.o be.o encdec.o enckeys.o encmac.o hashcomp.o lcd.o maccomp.o main.o mcbc.o mod_cand.o mod_grap.o mod_hwd.o mod_lang.o mod_list.o mod_msg.o mod_pwd.o mod_scre.o mod_scru.o mod_view.o mod_vote.o param.o psswd.o sequ_scr.o vote.o $(RES)
+OBJ  = alg-fst.o api-fst.o be.o encdec.o enckeys.o encmac.o hashcomp.o lcd.o maccomp.o main.o mcbc.o mod_cand.o mod_grap.o mod_hwd.o mod_list.o mod_msg.o mod_pwd.o mod_scre.o mod_scru.o mod_view.o mod_vote.o psswd.o $(RES)
+LINKOBJ  = alg-fst.o api-fst.o be.o encdec.o enckeys.o encmac.o hashcomp.o lcd.o maccomp.o main.o mcbc.o mod_cand.o mod_grap.o mod_hwd.o mod_list.o mod_msg.o mod_pwd.o mod_scre.o mod_scru.o mod_view.o mod_vote.o psswd.o $(RES)
 LIBS =   
 INCS = 
 CXXINCS = 
@@ -67,9 +67,6 @@ mod_grap.o: mod_grap.c
 mod_hwd.o: mod_hwd.c
 	$(CC) -c mod_hwd.c -o mod_hwd.o $(CFLAGS)
 
-mod_lang.o: mod_lang.c
-	$(CC) -c mod_lang.c -o mod_lang.o $(CFLAGS)
-
 mod_list.o: mod_list.c
 	$(CC) -c mod_list.c -o mod_list.o $(CFLAGS)
 
@@ -91,14 +88,6 @@ mod_view.o: mod_view.c
 mod_vote.o: mod_vote.c
 	$(CC) -c mod_vote.c -o mod_vote.o $(CFLAGS)
 
-param.o: param.c
-	$(CC) -c param.c -o param.o $(CFLAGS)
-
 psswd.o: psswd.c
 	$(CC) -c psswd.c -o psswd.o $(CFLAGS)
 
-sequ_scr.o: sequ_scr.c
-	$(CC) -c sequ_scr.c -o sequ_scr.o $(CFLAGS)
-
-vote.o: vote.c
-	$(CC) -c vote.c -o vote.o $(CFLAGS)

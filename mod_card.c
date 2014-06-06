@@ -24,10 +24,10 @@ INCLUDE FILES
 **************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
-#include <bios.h>
+//#include <bios.h>
 #include "defs.h"
-#include "libcrdrd.h"
-#include "..\LibAlrBx\LIBALRBX.H"
+//#include "libcrdrd.h"
+//#include "..\LibAlrBx\LIBALRBX.H"
 
 /**************************************************************************
 EXTERNAL VARIABLES

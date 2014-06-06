@@ -31,19 +31,19 @@ extern void my_Trace(void);
 /**************************************************************************
 INCLUDE FILES
 **************************************************************************/
-#include <bios.h>
-#include <io.h>
+//#include <bios.h>
+//#include <io.h>
 #include <fcntl.h>
-#include <alloc.h>
-#include <dos.h>
-#include <conio.h>
+//#include <alloc.h>
+//#include <dos.h>
+//#include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include <graphics.h>
-#include "libcrdrd.h"
-#include "..\LibAlrBx\LIBALRBX.H"
+//#include "libcrdrd.h"
+//#include "libalrbx.h"
 #include "defs.h"
 #include "cfgscrut.h"
 #include "scrutin.h"
@@ -199,10 +199,12 @@ int Vote_Start(void)
 
   if(gucMavType == MAV_JITES_1 || gucMavType == MAV_JITES_2)
   {
+/*
     shParametersMagnCard.iIoAddr = 0x300;
     shParametersMagnCard.iIrq = 5;
     shParametersMagnCard.iPort = 1;
     shParametersMagnCard.iSetting = _COM_CHR7 | _COM_STOP1 | _COM_EVENPARITY| _COM_9600;
+*/
     Lecteur_Init(&shParametersMagnCard);
 
     iStatus = Read_Commande(szBuffRead);
@@ -584,7 +586,7 @@ int Vote_End(void)
   char szBuffRead[75];
   int iPenX, iPenY, iPenCapture, iHwdDisconnected, t;
   s_Parameters shParametersMagnCard;
-  unsigned long far *timer;
+  unsigned long /*far*/ *timer;
   unsigned long temptimes;
   FILE *fu;
 
@@ -631,10 +633,12 @@ int Vote_End(void)
     case 5:
     case 6:         /* Probleme technique */
     case 9:
+/*
       shParametersMagnCard.iIoAddr = 0x300;
       shParametersMagnCard.iIrq = 5;
       shParametersMagnCard.iPort = 1;
       shParametersMagnCard.iSetting = _COM_CHR7 | _COM_STOP1 | _COM_EVENPARITY| _COM_9600;
+*/
       Lecteur_Init(&shParametersMagnCard);
 
       Screen_Technical_Error();
@@ -750,10 +754,12 @@ int Vote_End(void)
 
       while(giKlavier) Pen_Capture(&iPenX, &iPenY);
 
+/*
       shParametersMagnCard.iIoAddr = 0x300;
       shParametersMagnCard.iIrq = 5;
       shParametersMagnCard.iPort = 1;
       shParametersMagnCard.iSetting = _COM_CHR7 | _COM_STOP1 | _COM_EVENPARITY| _COM_9600;
+*/
       Lecteur_Init(&shParametersMagnCard);
       if(!Card_Eject()) return(0);
       Wait_Loop(2);

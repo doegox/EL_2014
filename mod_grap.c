@@ -27,8 +27,8 @@ INCLUDE FILES
 #include <time.h>
 #include <graphics.h>
 #include "defs.h"
-#include "libcrdrd.h"
-#include "libalrbx.h"
+//#include "libcrdrd.h"
+//#include "libalrbx.h"
 
 /**************************************************************************
 EXTERNAL VARIABLES

@@ -28,8 +28,8 @@ INCLUDE FILES
 #include "defs.h"
 #include "cfgscrut.h"
 #include "scrutin.h"
-#include "libcrdrd.h"
-#include "..\LibAlrBx\LIBALRBX.H"
+//#include "libcrdrd.h"
+//#include "libalrbx.h"
 
 #ifdef EL2014
 #include "util_mav.h"

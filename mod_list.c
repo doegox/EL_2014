@@ -32,8 +32,8 @@ INCLUDE FILES
 #include "defs.h"
 #include "list.h"
 #include "scrutin.h"
-#include "libcrdrd.h"
-#include "libalrbx.h"
+//#include "libcrdrd.h"
+//#include "libalrbx.h"
 #ifdef EL2014
 //#include <io.h>
 #include "variable.h"

@@ -17,18 +17,18 @@
 /**************************************************************************
 INCLUDE FILES
 **************************************************************************/
-#include <bios.h>
-#include <io.h>
+//#include <bios.h>
+//#include <io.h>
 #include <fcntl.h>
-#include <alloc.h>
-#include <dos.h>
-#include <conio.h>
+//#include <alloc.h>
+//#include <dos.h>
+//#include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <graphics.h>
 #include "libcrdrd.h"
-#include "..\LibAlrBx\LIBALRBX.H"
+#include "libalrbx.h"
 #include "defs.h"
 
 /**************************************************************************
@@ -112,11 +112,12 @@ void Hwd_Init(void)
   }
   gucMavType = sPcType.iPcType;
 
+/*
   sParametersMagnCard.iIoAddr = 0x300;
   sParametersMagnCard.iIrq = 5;
   sParametersMagnCard.iPort = 1;
   sParametersMagnCard.iSetting = _COM_CHR7 | _COM_STOP1 | _COM_EVENPARITY| _COM_9600;
-
+*/
   /* Initialization of the Card Reader */
   iRet = Lecteur_Init(&sParametersMagnCard);
   if(iRet != 0)
@@ -225,26 +226,5 @@ void Leds(char _cType, int _iBell)
 /**************************************************************************/
 unsigned char Test_LightPen(void)
 {
-  if(gucMavType == MAV_DIGIVOTE_1 || gucMavType == MAV_DIGIVOTE_2)
-  {
-    asm {
-     PUSH CX
-     PUSH DX
-     MOV  AH,4
-     MOV  BX,'FT'
-     MOV  CX,'GD'
-     MOV  DX,'PN'
-     INT  10H
-     POP  DX
-     POP  CX
-    }
-
-    if(_BX == 0) return 1;
-  }
-  else /* JITES */
-  {
     return 1;
-  }
-
-  return 0;
 }
