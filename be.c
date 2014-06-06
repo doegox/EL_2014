@@ -13,6 +13,7 @@ extern void my_Trace(void);
 #include <fcntl.h>
 //#include <dos.h>
 //#include <dir.h>
+#include <dirent.h>
 /* << el2012 */
 //#include <graphics.h>
 /* el2012 >> */
@@ -211,55 +212,66 @@ int Rfile(char *fichier)
 /* TBC - ONLY FOR TESTS - BLANC.EXE MUST BE REMOVED */
 #define ONLY_BE_2 \
 ( \
-	!strnicmp(fileinfo.ff_name,"BE", 2) || \
-	!stricmp(fileinfo.ff_name,"URNE.EXE") || \
-	!strnicmp(fileinfo.ff_name,"MSG_", 4) || \
-	!strnicmp(fileinfo.ff_name,"URNE", 4) || \
-	!stricmp(fileinfo.ff_name,"RUNURN.BAT") || \
-	!stricmp(fileinfo.ff_name,"TABLE.URN") || \
-	strstr(fileinfo.ff_name,"FE_DSK") || \
-	!stricmp(fileinfo.ff_name,"CTRLVOTE") || \
-	!stricmp(fileinfo.ff_name,"LOG.ERR") \
+	!strnicmp(pDirent->d_name,"BE", 2) || \
+	!stricmp(pDirent->d_name,"URNE.EXE") || \
+	!strnicmp(pDirent->d_name,"MSG_", 4) || \
+	!strnicmp(pDirent->d_name,"URNE", 4) || \
+	!stricmp(pDirent->d_name,"RUNURN.BAT") || \
+	!stricmp(pDirent->d_name,"TABLE.URN") || \
+	strstr(pDirent->d_name,"FE_DSK") || \
+	!stricmp(pDirent->d_name,"CTRLVOTE") || \
+	!stricmp(pDirent->d_name,"LOG.ERR") \
 )
 /* el2007 >> */
 
+unsigned int filesize(char* dirname, char* filename) {
+    char buff[100];
+    unsigned int size;
+    strncpy(buff, dirname, 12);
+    strncat(buff, filename, 12);
+    FILE * f;
+    f=fopen(filename, "r");
+    fseek(f, 0, SEEK_END);
+    size = ftell(f);
+    fclose(f);
+    return size;
+}
+
 Remplit()
 {
-struct ffblk fileinfo;
 
 count = 0;
 strcpy(source,"FLOPPY/");
-strcat(source,"*.*");
 
 /* << el2007 */
 	if(strcmp(niveau,"4") == 0) /* BLANC */
 	{
-		if(findfirst(source,&fileinfo,0) == -1)
-			return(0);
 
-		if(!ONLY_BE_2)
-		{
-			giProgressionMax += (int)(fileinfo.ff_fsize / 1024) + 1.;
-			strcpy(stru_fichier[count].nom,fileinfo.ff_name);
-#ifdef EL2014
-  sprintf(my_msg, "[%d]%s\n", count, fileinfo.ff_name); 
-  my_Trace();
-#endif  
-			count++;
+
+		int len;
+		struct dirent *pDirent;
+		DIR *pDir;
+
+		pDir = opendir (source);
+		if (pDir == NULL) {
+		    printf ("Cannot open directory '%s'\n", source);
+		    return(0);
 		}
-		while(findnext(&fileinfo) == 0)
+
+		while ((pDirent = readdir(pDir)) != NULL)
 		{
 			if(!ONLY_BE_2)
 			{
-				giProgressionMax += (int)(fileinfo.ff_fsize / 1024) + 1.;
-				strcpy(stru_fichier[count].nom,fileinfo.ff_name);
+				giProgressionMax += (int)(filesize(source, pDirent->d_name) / 1024) + 1.;
+				strcpy(stru_fichier[count].nom,pDirent->d_name);
 #ifdef EL2014
-  sprintf(my_msg, "[%d]%s\n", count, fileinfo.ff_name); 
+  sprintf(my_msg, "[%d]%s\n", count, pDirent->d_name); 
   my_Trace();
 #endif  
 				count++;
 			}
 		}
+		closedir (pDir);
 
 		return 1;
 	}
@@ -271,60 +283,41 @@ strcat(source,"*.*");
 	}
 	else
 	{
-		if(findfirst(source,&fileinfo,0) == -1)
-			return(0);
-		if(strnicmp(fileinfo.ff_name,"BE",2) != 0)
-		{
-			if(strcmp(niveau,"2") == 0 )
-			{
-				if((strcmp(fileinfo.ff_name,"TABLE.URN")!= 0)    &&
-				   (strcmp(fileinfo.ff_name,"FE_DSK.BK") !=0)   &&
-				   (strcmp(fileinfo.ff_name,"FE_DSK") !=0)     &&
-/* << 9.02 */
-		           (strcmp(fileinfo.ff_name,"FE_DSK.CRP") !=0)&&
-/* 9.02 >> */
-		           (strcmp(fileinfo.ff_name,"CTRLVOTE") !=0)     &&
-				   (strcmp(fileinfo.ff_name,"LOG.ERR") !=0))
-				{
-				    giProgressionMax += (int)(fileinfo.ff_fsize / 1024) + 1.;
-					strcpy(stru_fichier[count].nom,fileinfo.ff_name);
-					count++;
-				}
-			}
-			else
-			{
-				if(strcmp(fileinfo.ff_name,"LOG.ERR")!= 0)
-				{
-					strcpy(stru_fichier[count].nom,fileinfo.ff_name);
-					count++;
-				}
-			}
+		int len;
+		struct dirent *pDirent;
+		DIR *pDir;
+
+		pDir = opendir (source);
+		if (pDir == NULL) {
+		    printf ("Cannot open directory '%s'\n", source);
+		    return(0);
 		}
-		while(findnext(&fileinfo) == 0)
+
+		while ((pDirent = readdir(pDir)) != NULL)
 		{
-			if(strnicmp(fileinfo.ff_name,"BE",2) != 0)
+			if(strnicmp(pDirent->d_name,"BE",2) != 0)
 			{
 				if(strcmp(niveau,"2") == 0 )
 				{
-					if((strcmp(fileinfo.ff_name,"TABLE.URN") != 0)   &&
-					   (strcmp(fileinfo.ff_name,"FE_DSK.BK") !=0)  &&
-					   (strcmp(fileinfo.ff_name,"FE_DSK") !=0)    &&
+					if((strcmp(pDirent->d_name,"TABLE.URN") != 0)   &&
+					   (strcmp(pDirent->d_name,"FE_DSK.BK") !=0)  &&
+					   (strcmp(pDirent->d_name,"FE_DSK") !=0)    &&
 /* << 9.02 */
-		               (strcmp(fileinfo.ff_name,"FE_DSK.CRP") !=0)&&
+		               (strcmp(pDirent->d_name,"FE_DSK.CRP") !=0)&&
 /* 9.02 >> */
-		               (strcmp(fileinfo.ff_name,"CTRLVOTE") !=0)     &&
-					   (strcmp(fileinfo.ff_name,"LOG.ERR") !=0))
+		               (strcmp(pDirent->d_name,"CTRLVOTE") !=0)     &&
+					   (strcmp(pDirent->d_name,"LOG.ERR") !=0))
 					{
-				        giProgressionMax += (int)(fileinfo.ff_fsize / 1024) + 1.;
-						strcpy(stru_fichier[count].nom,fileinfo.ff_name);
+				        giProgressionMax += (int)(filesize(source, pDirent->d_name) / 1024) + 1.;
+						strcpy(stru_fichier[count].nom,pDirent->d_name);
 						count++;
 					}
 				}
 				else
 				{
-					if(strcmp(fileinfo.ff_name,"LOG.ERR")!= 0)
+					if(strcmp(pDirent->d_name,"LOG.ERR")!= 0)
 					{
-						strcpy(stru_fichier[count].nom,fileinfo.ff_name);
+						strcpy(stru_fichier[count].nom,pDirent->d_name);
 						count++;
 					}
 				}
