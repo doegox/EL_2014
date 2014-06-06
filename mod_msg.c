@@ -21,12 +21,12 @@
 /**************************************************************************
 INCLUDE FILES
 **************************************************************************/
-#include <bios.h>
-#include <io.h>
+//#include <bios.h>
+//#include <io.h>
 #include <fcntl.h>
-#include <alloc.h>
-#include <dos.h>
-#include <conio.h>
+//#include <alloc.h>
+//#include <dos.h>
+//#include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
