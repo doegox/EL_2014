@@ -178,10 +178,13 @@ int Pen_Capture(int *_iX, int *_iY)
     return(-1);
   }
 
-  giKlavier = ButtonPressed(0);
+  giKlavier = 0;//ButtonPressed(0);
 
-  if(rc) return(1);
-
+  if(getevent()){
+    *_iX = mousex();
+    *_iY = mousey();
+    return(1);
+  }
   return(0);
 }
 
