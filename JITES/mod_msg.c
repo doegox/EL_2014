@@ -114,6 +114,7 @@ static void Msg_Read(char *fichier,char **table)
     j = strlen(bufm);
     if(j < L_SCR_MESSAGE-1) bufm[j-1] = 0x00;
     else   bufm[L_SCR_MESSAGE-1] = 0x00;
+    printf("DEBUG: read %s from %s\n", bufm, fichier);
     strcpy((char *)table[i],bufm);
     ++i;
   }
