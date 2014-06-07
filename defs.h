@@ -1,6 +1,6 @@
 #define EL2014
 /* uncomment the next line to compile a test version */
-/* #define TST_EL2014 */
+//#define TST_EL2014
 
 #ifdef EL2014
 extern char my_msg[];

@@ -134,7 +134,7 @@ void List_Fill(FILE *_fpl, int _nbi, int _iScr)
     /* Reads line */
     fgets(bufl,iLineNbCar+1,_fpl);
     /* Starting position (machvotc.tbl) */
-    ltoa(depl,buffer,10);
+    sprintf(buffer, "%l", depl);
     strncpy(gshList->adresse_cand,buffer,6);
     gshList->adresse_cand[6] = '\0';
     /* Code */

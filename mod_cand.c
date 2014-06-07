@@ -164,8 +164,8 @@ static void Cand_Fill(void)
   /* Number of candidates */
   kp = aszTabEff[giCurrentScr][giCurrentList] + aszTabSuppl[giCurrentScr][giCurrentList];
   /* Open the machvotc.tbl */
-  fpc = fopen("machvotc.tbl","r");
-  if(fpc == NULL) Msg_Error_Exit("MACHVOTC FILE ERROR");
+  fpc = fopen("DATA/machvotc.tbl","r");
+  if(fpc == NULL) Msg_Error_Exit("DATA/machvotc.tbl FILE ERROR");
 
   /* Go to the right position */
   fseek(fpc,deplacement_file_cand,0);
@@ -891,8 +891,8 @@ int Cand_Display(void)
        /* Num */
        settextjustify(CENTER_TEXT,CENTER_TEXT);
        settextstyle( SMALL_FONT, HORIZ_DIR, 5);
-       outtextxy(x + 10,(y + giCadreCandidH/2) -2, itoa(k,bufitoa,10));
-       outtextxy(x + 11,(y + giCadreCandidH/2) -2, itoa(k,bufitoa,10));
+       outtextxy(x + 10,(y + giCadreCandidH/2) -2, sprintf(bufitoa, "%d", k));
+       outtextxy(x + 11,(y + giCadreCandidH/2) -2, sprintf(bufitoa, "%d", k));
        settextstyle( SMALL_FONT, HORIZ_DIR, 4);
        /* Sep */
        setfillstyle(SOLID_FILL,BLACK);

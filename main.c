@@ -184,14 +184,14 @@ void main(int argc, char *argv[])
   {
 #if (NOCARD_CHECK >= 1)
     /* Demo ? */
-    if(!stricmp(argv[iArg], "-NOCARD"))
+    if(!strcmp(argv[iArg], "-NOCARD"))
     {
       giSWCard = _NOCARD;
       ++iArg; continue;
   }
 #endif
     /* LPCURSOR ? */
-    if(!stricmp(argv[iArg], "-LPCURSOR"))
+    if(!strcmp(argv[iArg], "-LPCURSOR"))
     {
       setLPcursor(1);
       ++iArg; continue;

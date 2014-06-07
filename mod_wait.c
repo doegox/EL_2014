@@ -47,7 +47,7 @@ extern int Pen_Capture(int *, int *);
 #pragma argsused
 void Wait_Loop(int _iSecs)
 {
-  unsigned long far *timer = ( unsigned long * )0x46C;
+  unsigned long /*far*/ *timer = ( unsigned long * )0x46C;
   unsigned long temptimes;
 
   temptimes = *timer;         /* Valeur du temps */
@@ -75,7 +75,7 @@ void Wait_Loop(int _iSecs)
 #pragma argsused
 void Wait_Loop_Int(int _iSecs)
 {
-  unsigned long far *timer = ( unsigned long * )0x46C;
+  unsigned long /*far*/ *timer = ( unsigned long * )0x46C;
   unsigned long temptimes;
   int iPenX, iPenY;
 

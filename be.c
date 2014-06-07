@@ -21,8 +21,8 @@ extern void my_Trace(void);
 #define PlainDataLen   14400
 #define CipherDataLen  14400
 
-#include "alg-fst.c"
-#include "api-fst.c"
+#include "alg-fst.h"
+#include "api-fst.h"
 #include "encdec.c"
 #include "enckeys.c"
 #include "encmac.c"
@@ -212,15 +212,15 @@ int Rfile(char *fichier)
 /* TBC - ONLY FOR TESTS - BLANC.EXE MUST BE REMOVED */
 #define ONLY_BE_2 \
 ( \
-	!strnicmp(pDirent->d_name,"BE", 2) || \
-	!stricmp(pDirent->d_name,"URNE.EXE") || \
-	!strnicmp(pDirent->d_name,"MSG_", 4) || \
-	!strnicmp(pDirent->d_name,"URNE", 4) || \
-	!stricmp(pDirent->d_name,"RUNURN.BAT") || \
-	!stricmp(pDirent->d_name,"TABLE.URN") || \
+	!strncmp(pDirent->d_name,"BE", 2) || \
+	!strcmp(pDirent->d_name,"URNE.EXE") || \
+	!strncmp(pDirent->d_name,"MSG_", 4) || \
+	!strncmp(pDirent->d_name,"URNE", 4) || \
+	!strcmp(pDirent->d_name,"RUNURN.BAT") || \
+	!strcmp(pDirent->d_name,"TABLE.URN") || \
 	strstr(pDirent->d_name,"FE_DSK") || \
-	!stricmp(pDirent->d_name,"CTRLVOTE") || \
-	!stricmp(pDirent->d_name,"LOG.ERR") \
+	!strcmp(pDirent->d_name,"CTRLVOTE") || \
+	!strcmp(pDirent->d_name,"LOG.ERR") \
 )
 /* el2007 >> */
 
@@ -295,7 +295,7 @@ strcpy(source,"FLOPPY/");
 
 		while ((pDirent = readdir(pDir)) != NULL)
 		{
-			if(strnicmp(pDirent->d_name,"BE",2) != 0)
+			if(strncmp(pDirent->d_name,"BE",2) != 0)
 			{
 				if(strcmp(niveau,"2") == 0 )
 				{
@@ -525,7 +525,7 @@ int Verifie_Password(void)
   ret = computeKeyFromPassword (derivedKey, fullPassword);
   if (ret != 0)
 	  return(0);
-  strcpy(source,"A:");
+  strcpy(source,"FLOPPY/");
 #ifdef EL2014
   /* << el2007 */
   strcat(source,BE);

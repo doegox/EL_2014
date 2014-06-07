@@ -122,8 +122,8 @@ int Pwd_Read(void)
            }
            else
            {
-             if(i == 9) itoa(0,bfs,10);
-             else       itoa(i + 1,bfs,10);
+             if(i == 9) sprintf(bfs, "%d", 0);
+             else       sprintf(bfs, "%d", i+1);
              bfs[1] = 0x00;
              strcat(fullPassword,bfs);
              x++;
@@ -207,6 +207,6 @@ void Pwd(void)
   Initialise_RijndaelMini();
 
   /* looking for a:Machvots.tbl */
-  if(access("Machvots.tbl", 0))
-    Msg_Error_Exit("Machvots.tbl FILE ERROR");
+  if(access("DATA/machvots.tbl", 0))
+    Msg_Error_Exit("DATA/machvots.tbl FILE ERROR");
 }

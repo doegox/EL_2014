@@ -109,8 +109,8 @@ void Lg_Init(void)
   FILE *fps;
   char bufs[32];
 
-  fps = fopen("machvots.Tbl","r");
-  if(fps == NULL) Msg_Error_Exit("Machvots.tbl FILE ERROR");
+  fps = fopen("DATA/machvots.tbl","r");
+  if(fps == NULL) Msg_Error_Exit("DATA/machvots.tbl FILE ERROR");
 
   fread(bufs,16,1,fps);
   fclose(fps);

@@ -134,26 +134,26 @@ void Msg_Fill(void)
   switch(gcCodeLg)
   {
     case '3': /* German */
-         Msg_Read("messagea",pszMsg1);
+         Msg_Read("DATA/messagea",pszMsg1);
          break;
 
     case '5': /* Choose between French or German */
-         Msg_Read("messagef",pszMsg1);
-         Msg_Read("messagea",pszMsg2);
+         Msg_Read("DATA/messagef",pszMsg1);
+         Msg_Read("DATA/messagea",pszMsg2);
          break;
 
     case '6': /* Choose between French or Dutch */
-         Msg_Read("messagef",pszMsg1);
-         Msg_Read("messagen",pszMsg2);
+         Msg_Read("DATA/messagef",pszMsg1);
+         Msg_Read("DATA/messagen",pszMsg2);
          break;
 
     case '7': /* French */
-         Msg_Read("messagef",pszMsg1);
+         Msg_Read("DATA/messagef",pszMsg1);
          break;
 
     case '8': /* Choose between German or French */
-         Msg_Read("messagea",pszMsg1);
-         Msg_Read("messagef",pszMsg2);
+         Msg_Read("DATA/messagea",pszMsg1);
+         Msg_Read("DATA/messagef",pszMsg2);
          break;
 
     default:

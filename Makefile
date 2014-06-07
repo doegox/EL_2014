@@ -4,14 +4,14 @@
 CPP  = g++
 CC   = gcc
 RES  = 
-OBJ  = alg-fst.o api-fst.o be.o encdec.o enckeys.o encmac.o hashcomp.o lcd.o maccomp.o main.o mcbc.o mod_cand.o mod_grap.o mod_hwd.o mod_list.o mod_msg.o mod_pwd.o mod_scre.o mod_scru.o mod_view.o mod_vote.o psswd.o $(RES)
-LINKOBJ  = alg-fst.o api-fst.o be.o encdec.o enckeys.o encmac.o hashcomp.o lcd.o maccomp.o main.o mcbc.o mod_cand.o mod_grap.o mod_hwd.o mod_list.o mod_msg.o mod_pwd.o mod_scre.o mod_scru.o mod_view.o mod_vote.o psswd.o $(RES)
+OBJ  = alg-fst.o api-fst.o be.o lcd.o main.o mcbc.o mod_cand.o mod_grap.o mod_hwd.o mod_list.o mod_msg.o mod_pwd.o mod_scre.o mod_scru.o mod_view.o mod_vote.o mod_wait.o dummy.o libarlbx.o libcrdrd.o mod_lg.o mod_card.o $(RES)
+LINKOBJ  = alg-fst.o api-fst.o be.o lcd.o main.o mcbc.o mod_cand.o mod_grap.o mod_hwd.o mod_list.o mod_msg.o mod_pwd.o mod_scre.o mod_scru.o mod_view.o mod_vote.o mod_wait.o dummy.o libarlbx.o libcrdrd.o mod_lg.o mod_card.o $(RES)
 LIBS =   
 INCS = 
 CXXINCS = 
 BIN  = mav
 CXXFLAGS = $(CXXINCS)  
-CFLAGS = $(INCS)  
+CFLAGS = $(INCS) -m32
 RM = rm -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -23,7 +23,7 @@ clean: clean-custom
 	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)
-	$(CC) $(LINKOBJ) -o "mav" $(LIBS)
+	$(CC) $(LINKOBJ) -o "mav" /usr/lib/libXbgi.a -lX11 -lm -m32 $(LIBS)
 
 alg-fst.o: alg-fst.c
 	$(CC) -c alg-fst.c -o alg-fst.o $(CFLAGS)
@@ -88,6 +88,24 @@ mod_view.o: mod_view.c
 mod_vote.o: mod_vote.c
 	$(CC) -c mod_vote.c -o mod_vote.o $(CFLAGS)
 
+mod_wait.o: mod_wait.c
+	$(CC) -c mod_wait.c -o mod_wait.o $(CFLAGS)
+
 psswd.o: psswd.c
 	$(CC) -c psswd.c -o psswd.o $(CFLAGS)
+
+dummy.o: dummy.c
+	$(CC) -c dummy.c -o dummy.o $(CFLAGS)
+
+libarlbx.o: libarlbx.c
+	$(CC) -c libarlbx.c -o libarlbx.o $(CFLAGS)
+
+libcrdrd.o: libcrdrd.c
+	$(CC) -c libcrdrd.c -o libcrdrd.o $(CFLAGS)
+
+mod_lg.o: mod_lg.c
+	$(CC) -c mod_lg.c -o mod_lg.o $(CFLAGS)
+
+mod_card.o: mod_card.c
+	$(CC) -c mod_card.c -o mod_card.o $(CFLAGS)
 

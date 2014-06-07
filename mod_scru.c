@@ -196,13 +196,13 @@ void Scrut_Read(void)
   i = 0;
   giNbrScrutin = 0;
 
-  fps = fopen("machvots.tbl","r");
+  fps = fopen("DATA/machvots.tbl","r");
 /* << 9.01c */
-  if(fps == NULL) Msg_Error_Exit("Machvots.tbl FILE ERROR");
+  if(fps == NULL) Msg_Error_Exit("DATA/machvots.tbl FILE ERROR");
 /* 9.01c >> */
-  fpl = fopen("machvotl.tbl","r");
+  fpl = fopen("DATA/machvotl.tbl","r");
 /* << 9.01c */
-  if(fpl == NULL) Msg_Error_Exit("Machvotl.tbl FILE ERROR");
+  if(fpl == NULL) Msg_Error_Exit("DATA/machvotl.tbl FILE ERROR");
 /* 9.01c >> */
 
   /* Read the first 16 caracts */

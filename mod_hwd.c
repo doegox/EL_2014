@@ -64,12 +64,6 @@ static int Check_Terminal(int iType)
     Msg_Error_Exit("Voting Terminal ?");
     iResult = -1;
   }
-  else
-  {
-    /*Enable screen and Mc reader/writer  */
-    if(iType == 1 | iType == 2)
-      outportb(0x308,0xf4);
-  }
   return iResult;
 }
 
@@ -112,14 +106,8 @@ void Hwd_Init(void)
   }
   gucMavType = sPcType.iPcType;
 
-/*
-  sParametersMagnCard.iIoAddr = 0x300;
-  sParametersMagnCard.iIrq = 5;
-  sParametersMagnCard.iPort = 1;
-  sParametersMagnCard.iSetting = _COM_CHR7 | _COM_STOP1 | _COM_EVENPARITY| _COM_9600;
-*/
   /* Initialization of the Card Reader */
-  iRet = Lecteur_Init(&sParametersMagnCard);
+  iRet = Lecteur_Init();
   if(iRet != 0)
   {
     printf("Initialization of the Card Reader...\n");
@@ -146,24 +134,7 @@ void Hwd_Init(void)
 **************************************************************************/
 unsigned char Test_AlarmBox(void)
 {
-  unsigned char iStatus = 0;
-
-  if(gucMavType >= MAV_DIGIVOTE_1 && gucMavType <= MAV_DIGIVOTE_2)
-  {
-
-    if(!(inp(0x3BC + 1) & 0x08))
-      iStatus = 1;
-    if(!(inp(0x378 + 1) & 0x08))
-      iStatus = 1;
-    if(!(inp(0x278 + 1) & 0x08))
-      iStatus = 1;
-  }
-  else /* JITES */
-  {
-    iStatus = 1;
-  }
-
-  return(iStatus);
+  return(1);
 }
 
 /**************************************************************************
@@ -217,9 +188,7 @@ void Leds(char _cType, int _iBell)
   /* Bip */
   if(_iBell)
   {
-    sound(2000);
-    delay(3000);
-    nosound();
+    printf("Beeeep....\n");
   }
 }
 

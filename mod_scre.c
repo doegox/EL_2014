@@ -199,7 +199,7 @@ void Screen_Pwd(void)
     settextjustify(CENTER_TEXT,CENTER_TEXT);
     settextstyle(SMALL_FONT, HORIZ_DIR, 6);
     if(k== 9) strcpy(cBuff,"0");
-    else      itoa(k+1,cBuff,10);
+    else      sprintf(cBuff, "%d", k+1);
     setcolor(BLACK);
     if(k < 10)
     {

@@ -199,13 +199,7 @@ int Vote_Start(void)
 
   if(gucMavType == MAV_JITES_1 || gucMavType == MAV_JITES_2)
   {
-/*
-    shParametersMagnCard.iIoAddr = 0x300;
-    shParametersMagnCard.iIrq = 5;
-    shParametersMagnCard.iPort = 1;
-    shParametersMagnCard.iSetting = _COM_CHR7 | _COM_STOP1 | _COM_EVENPARITY| _COM_9600;
-*/
-    Lecteur_Init(&shParametersMagnCard);
+    Lecteur_Init();
 
     iStatus = Read_Commande(szBuffRead);
     if(iStatus == 0) ucCardReadAtStart_JIT = 1;
@@ -633,13 +627,7 @@ int Vote_End(void)
     case 5:
     case 6:         /* Probleme technique */
     case 9:
-/*
-      shParametersMagnCard.iIoAddr = 0x300;
-      shParametersMagnCard.iIrq = 5;
-      shParametersMagnCard.iPort = 1;
-      shParametersMagnCard.iSetting = _COM_CHR7 | _COM_STOP1 | _COM_EVENPARITY| _COM_9600;
-*/
-      Lecteur_Init(&shParametersMagnCard);
+      Lecteur_Init();
 
       Screen_Technical_Error();
       /* switch on the green led */
@@ -754,13 +742,7 @@ int Vote_End(void)
 
       while(giKlavier) Pen_Capture(&iPenX, &iPenY);
 
-/*
-      shParametersMagnCard.iIoAddr = 0x300;
-      shParametersMagnCard.iIrq = 5;
-      shParametersMagnCard.iPort = 1;
-      shParametersMagnCard.iSetting = _COM_CHR7 | _COM_STOP1 | _COM_EVENPARITY| _COM_9600;
-*/
-      Lecteur_Init(&shParametersMagnCard);
+      Lecteur_Init();
       if(!Card_Eject()) return(0);
       Wait_Loop(2);
       break;
