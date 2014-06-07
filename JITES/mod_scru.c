@@ -42,7 +42,7 @@ INCLUDE FILES
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <graphics.h>
+#include "graphics.h"
 
 #include "defs.h"
 #include "cfgscrut.h"

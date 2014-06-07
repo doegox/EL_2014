@@ -28,7 +28,7 @@ INCLUDE FILES
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <graphics.h>
+#include "graphics.h"
 #include "defs.h"
 #include "list.h"
 #include "scrutin.h"

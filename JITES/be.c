@@ -15,7 +15,7 @@ extern void my_Trace(void);
 //#include <dir.h>
 #include <dirent.h>
 /* << el2012 */
-#include <graphics.h>
+#include "graphics.h"
 /* el2012 >> */
 
 #define PlainDataLen   14400

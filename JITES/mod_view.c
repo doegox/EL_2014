@@ -24,7 +24,7 @@ INCLUDE FILES
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <graphics.h>
+#include "graphics.h"
 #include "defs.h"
 #include "cfgscrut.h"
 #include "scrutin.h"

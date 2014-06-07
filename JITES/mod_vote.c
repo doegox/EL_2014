@@ -41,7 +41,7 @@ INCLUDE FILES
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <graphics.h>
+#include "graphics.h"
 //#include "libcrdrd.h"
 //#include "libalrbx.h"
 #include "defs.h"

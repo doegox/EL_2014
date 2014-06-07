@@ -23,7 +23,7 @@ clean: clean-custom
 	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)
-	$(CC) $(LINKOBJ) -o "mav" /usr/lib/libXbgi.a -lX11 -lm -m32 $(LIBS)
+	$(CC) $(LINKOBJ) -o "mav" libXbgi.a -lX11 -lm -m32 $(LIBS)
 
 alg-fst.o: alg-fst.c
 	$(CC) -c alg-fst.c -o alg-fst.o $(CFLAGS)
