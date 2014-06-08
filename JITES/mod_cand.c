@@ -470,9 +470,10 @@ static void Cand_Switch(int _iZ1)
   if(_iZ1 > 0)/*|| !giSWCandidRadio)*/
   {
     if(arcMemoCandid[giCurrentScr][giCurrentList][_iZ1] == 1)/* was Selected */
-      Cand_Reverse(ax1,ax2,ay1,ay2, WHITE, 7); /* White -> LightGrey */
+      // Emulating pixel painting is super slow -> let's paint less...
+      Cand_Reverse(ax1,/*ax2*/ax1+28,ay1,ay2, WHITE, 7); /* White -> LightGrey */
     else
-      Cand_Reverse(ax1,ax2,ay1,ay2, 7, WHITE); /* LightGrey -> White */
+      Cand_Reverse(ax1,/*ax2*/ax1+28,ay1,ay2, 7, WHITE); /* LightGrey -> White */
   }
 }
 
