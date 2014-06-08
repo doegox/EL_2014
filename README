@@ -18,6 +18,12 @@ cd JITES
 make
 ./mav
 
+#Dependencies and direct includes of .c in .c (in original sources) are quite shitty...
+#To recompile, better to
+make clean
+make
+
+
 Included dependencies
 =====================
 XBGI linux port:
