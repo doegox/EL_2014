@@ -696,11 +696,11 @@ void Screen_Cand_Actions_Allowed(int _iType)
       outtextxy(160,462, pszMsg[49]);
       outtextxy(480,462, pszMsg[50]);
       if(strstr(pszMsg[50],"bevestigen"))
-        outtextxy(573,462, "bevestigen"); 
+        outtextxy(553,462, "bevestigen"); 
       else if(strstr(pszMsg[50],"confirmer"))
-        outtextxy(501,462, "confirmer");
-      else if(strstr(pszMsg[50],"best„tigen"))
-        outtextxy(558,462, "best„tigen");
+        outtextxy(499,462, "confirmer");
+      else if(strstr(pszMsg[50],"bestätigen"))
+        outtextxy(539,462, "bestätigen");
 		
 #else      
       outtextxy(160,462, pszMsg[50]);

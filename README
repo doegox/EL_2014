@@ -42,10 +42,12 @@ Differences with real software
 * config with TST_EL2014 -> no password to start the machine
 * no light pen, use mouse
 * no reset button
-* fonts slightly smaller, to be fixed?
-* little font glitch on the bold "confirm" button
-* head circle doesn't change color (to be fixed) but it works as expected when clicked
+* X11 fonts slightly smaller
+* candidate selection by pixel painting was too slow, we only paint its number
 
+TODO
+====
+* head circle doesn't change color (to be fixed) but it works as expected when clicked
 
 TESTS JITES:
 ============
