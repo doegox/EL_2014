@@ -394,7 +394,6 @@ int Vote_Start(void)
     ptfunct = Vote_End;
     return(0);
   }
-
   /* Does the card already contain a vote ? */
   Card_RW(guszCard);
   
@@ -535,11 +534,12 @@ int Vote_Write(void)
         if (iStatus == 0)
         {
           /* Verification (read the card and compare) */
-          if(strcmp(carteBAK, szBuffRead) == 0)
-          {
+// We cannot verify with simulation
+//          if(strcmp(carteBAK, szBuffRead) == 0)
+//          {
             giCodeVoteEnd = 17;
             break;
-          }
+//          }
         }
       }
     }
