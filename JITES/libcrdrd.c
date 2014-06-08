@@ -25,12 +25,12 @@ int Status_Commande(void)
 }
 int Read_Commande(char* pzLectBuffer)
 {
-	printf("Status_Commande(%s)\n", pzLectBuffer);
+	printf("Read_Commande(%s)\n", pzLectBuffer);
         return 0;
 }
 int Write_Commande(const char* pzString)
 {
-	printf("Status_Commande(%s)\n", pzString);
+	printf("Write_Commande(%s)\n", pzString);
         return 0;
 }
 
