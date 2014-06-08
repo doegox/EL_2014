@@ -464,7 +464,7 @@ int les_listes()
         int Cl, h;
         int ncolonne;
         
-	char caisse[30],buf[30];
+	char caisse[30],buf[30],buf2[30];
 #ifdef EL2014
 	int iPenX, iPenY, iPenCapture, iHwdDisconnected;
 #endif
@@ -488,7 +488,6 @@ int les_listes()
 	   }  
 	outtextxy(320, 10, pszMsg[code_scr]);
 	outtextxy(319, 10, pszMsg[code_scr]);
-
 	/********************** Y A PLUSIEURS COLLEGES ?*****************************/
 	if (swCLG)
 	{
@@ -689,17 +688,19 @@ int les_listes()
 			bar(x,y,x + lon,y + recl);
 			if(k < (gaiNbListScrut[giCurrentScr] - 1))
 			{
-				buf[0]=gshScrutin[giCurrentScr].nom_s;
-				buf[1]= 0x00;
-				strcat(buf,gshList->numlist_l);
+				buf2[0]=gshScrutin[giCurrentScr].nom_s;
+				buf2[1]= 0x00;
+				strcat(buf2,gshList->numlist_l);
 				if(strcmp(gszArrond,"005") == 0 )
-					buf[3]='N';
+					buf2[3]='N';
 				else
-					buf[3]=gshList->college;
-				buf[4]=0x00;
-				strcat(buf,".bmp");
-				if(buf[1] == ' ')
-					buf[1] = '0';
+					buf2[3]=gshList->college;
+				buf2[4]=0x00;
+				strcat(buf2,".bmp");
+				if(buf2[1] == ' ')
+					buf2[1] = '0';
+				strcpy(buf, "DATA/");
+				strcat(buf, buf2);
 				settextjustify( CENTER_TEXT, CENTER_TEXT );
 				outtextxy( x + 13, y + recl/2, gshList->numlist_l);
 				outtextxy( x + 14, y + recl/2, gshList->numlist_l);
