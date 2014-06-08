@@ -47,11 +47,7 @@ extern int Pen_Capture(int *, int *);
 #pragma argsused
 void Wait_Loop(int _iSecs)
 {
-  unsigned long /*far*/ *timer = ( unsigned long * )0x46C;
-  unsigned long temptimes;
-
-  temptimes = *timer;         /* Valeur du temps */
-  while ((*timer - temptimes <= (unsigned long) _iSecs * 19));
+  sleep(_iSecs);
 }
 
 /**************************************************************************
@@ -75,11 +71,8 @@ void Wait_Loop(int _iSecs)
 #pragma argsused
 void Wait_Loop_Int(int _iSecs)
 {
-  unsigned long /*far*/ *timer = ( unsigned long * )0x46C;
-  unsigned long temptimes;
-  int iPenX, iPenY;
-
-  temptimes = *timer;
-  while((*timer - temptimes <= (unsigned long) _iSecs * 19)
-         && (!Pen_Capture(&iPenX, &iPenY)) && giKlavier);
+  int i, iPenX, iPenY;
+  for(i=0; (i<_iSecs) && (!Pen_Capture(&iPenX, &iPenY)) && giKlavier; i++) {
+    sleep(1);
+  }
 }
