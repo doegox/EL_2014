@@ -26,9 +26,24 @@ see resources/xbgi_364-1_i386.deb
 (no need to install it)
 
 
+Election test
+=============
+Current tables represent the european election at Saint-Vith - Eupen
+You can compare it to http://elections2014.belgium.be/simElec/index.php?lang=DE-FR&ins=63023&screen=lang&step=0&elector=1
+
+Differences with real software
+==============================
+* config with TST_EL2014 -> no password to start the machine
+* no light pen, use mouse
+* no reset button
+* fonts slightly smaller, to be fixed?
+* little font glitch on the bold "confirm" button
+* head circle doesn't change color (to be fixed) but it works as expected when clicked
+
+
 TESTS JITES:
 ============
-Emulation of european election with 3 lists, 2 effective candidates per list
+Early tests with a pseudo european election with 3 lists, 2 effective candidates per list
 
 Different votes:
 Normal way:
