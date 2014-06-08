@@ -2,12 +2,12 @@
 #include "stdlib.h"
 #include "math.h"
 
-typedef struct {
-	 unsigned int type;                 /* Magic identifier            */
-	 unsigned long size;                /* File size in bytes          */
+typedef struct  __attribute__((__packed__)){
+	 unsigned char type1;                 /* Magic identifier            */
+	 unsigned char type2;                 /* Magic identifier            */
+	 unsigned int size;                   /* File size in bytes          */
 	 int reserved1;
-	 int reserved2;
-	 unsigned long offset;              /* Offset to image data, bytes */
+	 unsigned int offset;              /* Offset to image data, bytes */
 } HEADER;
 
 int bmp(char *BmpName,int X,int Y,int Inverse) /*Argv = Image name, Pos X, Pos Y */
@@ -24,7 +24,6 @@ int bmp(char *BmpName,int X,int Y,int Inverse) /*Argv = Image name, Pos X, Pos Y
 		return(-1);
 	/* Read and check the header */
 	fread(&header,sizeof(HEADER),1,fptr);
-
 	/* Seek to the start of the inverse data */
 	fseek(fptr,54L,0);
 	fread(Bu,2,1,fptr);
