@@ -127,15 +127,19 @@ void List_Fill(FILE *_fpl, int _nbi, int _iScr)
   static long depl = 0;
 /* 9.01b >> */
 
+//printf("LIST_FILL:%i / %i\n", _nbi, _iScr);
   shAdrL = gshList = (s_List *) malloc(sizeof(s_List)* _nbi);
   gshScrutin[_iScr].ptlist = gshList;
   for(j=0;j < _nbi;j++)
   {
     /* Reads line */
     fgets(bufl,iLineNbCar+1,_fpl);
+//printf("LIST_FILL:%s\n", bufl);
     /* Starting position (machvotc.tbl) */
-    sprintf(buffer, "%l", depl);
+//printf("LIST_FILL depl:%li\n", depl);
+    sprintf(buffer, "%li", depl);
     strncpy(gshList->adresse_cand,buffer,6);
+//printf("LIST_FILL addresse: %s\n", gshList->adresse_cand);
     gshList->adresse_cand[6] = '\0';
     /* Code */
     gshList->code_l = bufl[0];

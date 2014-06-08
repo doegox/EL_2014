@@ -212,31 +212,40 @@ void Scrut_Read(void)
 
   strncpy(gszArrond,bufs,3);
   gszArrond[3] = '\0';
+//printf("SCRUTIN: Arrond %s\n", gszArrond);
 
   /* Jeton */
   Build_Jeton(gszJeton,gszJetonMini);
+//printf("SCRUTIN: Jeton %s\n", gszJetonMini);
   fread(bufs,8,1,fps);
 
   giVoteMaxBytes = 0;
   while(!feof(fps))
   {
+//printf("SCRUTIN: %s\n", bufs);
     /* Code */
     gshScrutin[i].code_s = bufs[0];
+//printf("SCRUTIN: code_s %c\n", gshScrutin[i].code_s);
     strncpy(gshScrutin[i].scrutin_max_cand,bufs + 1,2);
     /* Max Eff+Substitute +1 */
     gshScrutin[i].scrutin_max_cand[2] = '\0';
+//printf("SCRUTIN: max_cand %s\n", gshScrutin[i].scrutin_max_cand);
     /* Max Substitute */
     strncpy(gshScrutin[i].scrutin_max_supp,bufs + 3,2);
     gshScrutin[i].scrutin_max_supp[2] = '\0';
+//printf("SCRUTIN: max_supp %s\n", gshScrutin[i].scrutin_max_supp);
     /* Type */
     gshScrutin[i].nom_s = bufs[5];
+//printf("SCRUTIN: nom_s %c\n", gshScrutin[i].nom_s);
     gshScrutin[i].TYPE_SCRUTIN = (int)((int)bufs[5] - (int)'0');
+//printf("SCRUTIN: TYPE_SCRUTIN %i\n", gshScrutin[i].TYPE_SCRUTIN);
     /* Incr giVoteMaxBytes */
     giVoteMaxBytes += (gshCfgScrut[gshScrutin[i].TYPE_SCRUTIN].nmxB +2);
     /* Nbr Lists +1 */
     strncpy(gshScrutin[i].nbrelist_s,bufs + 6,2);
     gshScrutin[i].nbrelist_s[2] = '\0';
     gaiNbListScrut[i] = atoi(gshScrutin[i].nbrelist_s);
+//printf("SCRUTIN: nbre lists %i\n", gaiNbListScrut[i]);
 
     giNbrScrutin++;
     /* Read the machvotl.tbl */

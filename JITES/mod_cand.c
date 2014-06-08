@@ -178,11 +178,14 @@ static void Cand_Fill(void)
   {
     /* Read line */
     fgets(bufc,81,fpc);
+//printf("CAND_FILL: (%i/%i) %s\n", k, kp, bufc);
     /* code */
     gshCand->code_c = bufc[0];
+//printf("CAND_FILL: code_c=%c\n", gshCand->code_c);
     /* NumList */
     strncpy(gshCand->numlist_c,bufc + 1,2);
     gshCand->numlist_c[2] = '\0';
+//printf("CAND_FILL: numlist_c=%s\n", gshCand->numlist_c);
     /* Name */
     caisse[25] = '\0';
     strncpy(caisse,vide,25);
@@ -190,20 +193,24 @@ static void Cand_Fill(void)
     j = 24;
     while(caisse[j] == ' ' && j >= 0) caisse[j--] = 0x00;
     strcpy(gshCand->nom_c,caisse);
+//printf("CAND_FILL: gshCand->nom_c=%s;\n", gshCand->nom_c);
     /* firstname */
     strncpy(caisse,vide,25);
     strncpy(caisse,bufc + 3 + 25,25);
     j = 24;
     while(caisse[j] == ' ' && j >= 0) caisse[j--] = 0x00;
     strcpy(gshCand->prenom_c,caisse);
+//printf("CAND_FILL: gshCand->prenom_c=%s;\n", gshCand->prenom_c);
     /* "second" firstname */
     strncpy(caisse,vide,25);
     strncpy(caisse,bufc + 3 + 50,25);
     j = 24;
     while(caisse[j] == ' ' && j >= 0) caisse[j--] = 0x00;
     strcpy(gshCand->prenom2_c,caisse);
+//printf("CAND_FILL: gshCand->prenom2_c=%s;\n", gshCand->prenom2_c);
     /* Effective or Subsitute */
     gshCand->E_S = bufc[78];
+//printf("CAND_FILL: E_S=%c\n", gshCand->E_S);
 
     /* Next Candidate */
     if(k < kp-1) gshCand++;
