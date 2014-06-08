@@ -1,17 +1,33 @@
 
+Clone this repository
+=====================
+HTTP:
+  git clone http://git.yobi.be/git/EL_2014.git
+
+GIT:
+  git clone git://git.yobi.be/git/EL_2014.git
+
+WEB:
+  http://git.yobi.be/?p=EL_2014.git;a=summary
+
+
+Get dependencies and compile it
+===============================
 apt-get install libx11-dev:i386
 cd JITES
 make
 ./mav
 
-
-XBGI:
+Included dependencies
+=====================
+XBGI linux port:
 From http://libxbgi.sourceforge.net/
 see resources/xbgi_364-1_i386.deb
 (no need to install it)
 
 
 TESTS JITES:
+============
 Emulation of european election with 3 lists, 2 effective candidates per list
 
 Different votes:
