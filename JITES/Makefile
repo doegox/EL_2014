@@ -10,8 +10,8 @@ LIBS =
 INCS = 
 CXXINCS = 
 BIN  = mav
-CXXFLAGS = $(CXXINCS)  
-CFLAGS = $(INCS) -m32
+CXXFLAGS = $(CXXINCS)
+CFLAGS = $(INCS) -m32 -g
 RM = rm -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -23,7 +23,7 @@ clean: clean-custom
 	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)
-	$(CC) $(LINKOBJ) -o "mav" libXbgi.a -lX11 -lm -m32 $(LIBS)
+	$(CC) $(LINKOBJ) -o "mav" libXbgi.a -lX11 -lm -m32 -g $(LIBS)
 
 alg-fst.o: alg-fst.c
 	$(CC) -c alg-fst.c -o alg-fst.o $(CFLAGS)
