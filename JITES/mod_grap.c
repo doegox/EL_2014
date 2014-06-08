@@ -178,7 +178,7 @@ int Pen_Capture(int *_iX, int *_iY)
     return(-1);
   }
 
-  giKlavier = 0;//ButtonPressed(0);
+  giKlavier = 1;//ButtonPressed(0);
 
   if(getevent()){
     *_iX = mousex();
