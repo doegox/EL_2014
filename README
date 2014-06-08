@@ -9,3 +9,52 @@ XBGI:
 From http://libxbgi.sourceforge.net/
 see resources/xbgi_364-1_i386.deb
 (no need to install it)
+
+
+TESTS JITES:
+Emulation of european election with 3 lists, 2 effective candidates per list
+
+Different votes:
+Normal way:
+
+list1:+head
+08-06-2014 19:36:28 - Vote_Write - [NETEF13480N 180000]
+list1:+cand1
+08-06-2014 19:21:11 - Vote_Write - [NETEF19D5FN 140000]
+
+list2:+head
+08-06-2014 19:36:55 - Vote_Write - [NETEF1ED6DN 280000]
+list2:+cand1
+08-06-2014 19:21:27 - Vote_Write - [NETEF16E74N 240000]
+
+list3:+head
+08-06-2014 19:35:50 - Vote_Write - [NETEF13628N 380000]
+list3:+cand1
+08-06-2014 19:21:40 - Vote_Write - [NETEF191D9N 340000]
+
+---------------------------------------------------
+Selecting/deselecting and changing list from L1 to L2>L1:
+
+list1:+cand1;list1:-cand1;list2:+cand1
+08-06-2014 19:28:12 - Vote_Write - [NETEF16E74N 240000]
+ok
+
+---------------------------------------------------
+Selecting/deselecting and changing list from L1 to L2<L1:
+
+list2:+cand1;list2:-cand1;list1:+cand1
+08-06-2014 19:28:56 - Vote_Write - [NETEF1431FN 200000]
+
+list3:+cand1;list3:-cand1;list1:+cand1
+08-06-2014 19:32:09 - Vote_Write - [NETEF132E9N 300000]
+
+list3:+cand1;list3:-cand1;list2:+cand1
+08-06-2014 19:34:54 - Vote_Write - [NETEF132E9N 300000]
+
+list3:+head;list3:-head;list1:+cand1
+08-06-2014 19:34:54 - Vote_Write - [NETEF132E9N 300000]
+
+list3:+head;list3:-head;list1:+head
+08-06-2014 19:34:54 - Vote_Write - [NETEF132E9N 300000]
+
+
