@@ -45,10 +45,6 @@ Differences with real software
 * X11 fonts slightly smaller
 * candidate selection by pixel painting was too slow, we only paint its number
 
-TODO
-====
-* head circle doesn't change color (to be fixed) but it works as expected when clicked
-
 TESTS JITES:
 ============
 Early tests with a pseudo european election with 3 lists, 2 effective candidates per list

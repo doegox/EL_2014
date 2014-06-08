@@ -528,13 +528,15 @@ static void Cand_Circle(int z)
  circle(xc ,yc , diam);
  if(arcMemoCandid[giCurrentScr][giCurrentList][z] == 1) /* Selected */
  {
-   setfillstyle(SOLID_FILL, BLACK);
+//   setfillstyle(SOLID_FILL, BLACK);
+   setcolor(BLACK);
    floodfill(xc ,yc ,8);
    Cand_Switch(z);
  }
  else /* Unselected */
  {
-   setfillstyle(SOLID_FILL, WHITE);
+//   setfillstyle(SOLID_FILL, WHITE);
+   setcolor(WHITE);
    floodfill(xc,yc, 8);
  }
  setcolor(BLACK);
