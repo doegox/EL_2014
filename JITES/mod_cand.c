@@ -710,6 +710,7 @@ static int Cand_Check_Selection(int _iX, int _iY)
 #else        
         ptfunct = List_Display;
 #endif      
+        Cancel_Selection(giCurrentScr,giCurrentList,1);
         return(1);
       }
       else /* Not managed */
