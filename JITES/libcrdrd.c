@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "libcrdrd.h"
 int InitLibCardReader(int iTypePc)
 {
@@ -23,14 +24,19 @@ int Status_Commande(void)
 	printf("Status_Commande()\n");
         return 0;
 }
+
+static char card[75];
+
 int Read_Commande(char* pzLectBuffer)
 {
+	strncpy(pzLectBuffer, card, 75);
 	printf("Read_Commande(%s)\n", pzLectBuffer);
         return 0;
 }
 int Write_Commande(const char* pzString)
 {
 	printf("Write_Commande(%s)\n", pzString);
+        strncpy(card, pzString, 75);
         return 0;
 }
 
