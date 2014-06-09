@@ -1,6 +1,42 @@
+Intro
+=====
+This code is a port of JITES from DOS to Linux to be able to simulate situations based on the actual code having been used during Belgian elections 2014.
+
+Contacts
+========
+Philippe Teuwen <phil@teuwen.org>
+Twitter: @doegox
+
+Election test
+=============
+Current tables represent the european election at Saint-Vith - Eupen
+You can compare it to the official simulation: http://elections2014.belgium.be/simElec/index.php?lang=DE-FR&ins=63023&screen=lang&step=0&elector=1
+
+Differences with real software
+==============================
+* AFTER YOUR VOTE THE "CARD" WILL AUTOMATICALLY BE READ BACK SO YOU CAN VISUALIZE YOUR VOTE
+* config with TST_EL2014 -> no password required to start the machine
+* no light pen, use mouse instead
+* no reset button
+* X11 fonts slightly smaller
+* candidate selection by pixel painting was too slow, we only paint its number
+
+DEMO:
+=====
+Current demo.gif shows:
+* selection of SP head
+* delesection of SP head
+* back to lists
+* selection of Ecolo head
+* reading back the card shows SP list (but nothing selected)
+
+Install
+=======
+Current port works only under Linux and requires X11
 
 Clone this repository
-=====================
+---------------------
+
 HTTP:
   git clone http://git.yobi.be/git/EL_2014.git
 
@@ -11,50 +47,26 @@ WEB:
   http://git.yobi.be/?p=EL_2014.git;a=summary
 
 
-Get dependencies and compile it
-===============================
+Get dependencies
+----------------
 apt-get install libx11-dev:i386
+
+Compile
+-------
 cd JITES
 make
 ./mav
 
-#Dependencies and direct includes of .c in .c (in original sources) are quite shitty...
-#To recompile, better to
-make clean
-make
-
-
-Included dependencies
-=====================
-XBGI linux port:
-From http://libxbgi.sourceforge.net/
-see resources/xbgi_364-1_i386.deb
-(no need to install it)
-
-
-Election test
-=============
-Current tables represent the european election at Saint-Vith - Eupen
-You can compare it to http://elections2014.belgium.be/simElec/index.php?lang=DE-FR&ins=63023&screen=lang&step=0&elector=1
-
-Differences with real software
-==============================
-* config with TST_EL2014 -> no password to start the machine
-* no light pen, use mouse
-* no reset button
-* X11 fonts slightly smaller
-* candidate selection by pixel painting was too slow, we only paint its number
-
-DEMO:
-=====
+Record a demo
+-------------
 demo.gif has been recorded as animated gif with
 byzanz-record -c -x 3 -y 22 -w 640 -h 480 tmp.gif
 to compress the result:
 gifsicle -k3 --optimize tmp.gif > demo.gif
 
-It shows:
-* selection of SP head
-* delesection of SP head
-* back to lists
-* selection of Ecolo head
-* reading back the card shows SP list (but nothing selected)
+Included dependencies
+---------------------
+XBGI linux port:
+From http://libxbgi.sourceforge.net/
+see resources/xbgi_364-1_i386.deb
+(no need to install it)
