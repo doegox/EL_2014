@@ -28,7 +28,25 @@ Current demo.gif shows:
 * delesection of SP head
 * back to lists
 * selection of Ecolo head
-* reading back the card shows SP list (but nothing selected)
+* confirmation of vote for Ecolo
+* ejection of the card
+* introduction of the card for vote visualization
+
+Reading back the card shows recorded vote is for SP list (but no preference or head vote registered)
+Ooops
+
+Note that the inverse does not lead to the same result:
+* selection of Ecolo head
+* delesection of Ecolo head
+* back to lists
+* selection of SP head
+* confirmation of vote for SP
+
+Reading back the card shows recorded vote is for SP list (and head vote registered)
+
+So lists are not equally facing the bug!
+
+See http://www.poureva.be/spip.php?article853 for more explanations
 
 Install
 =======
