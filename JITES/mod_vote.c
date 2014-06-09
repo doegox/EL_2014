@@ -554,7 +554,6 @@ int Vote_Write(void)
 #if (NOCARD_CHECK >= 1)
   } /* END WITH Carte */
 #endif
-
   ptfunct = Vote_End;
   return(0);
 }
@@ -726,10 +725,15 @@ int Vote_End(void)
       if(!Card_Eject()) return(0);
 /* << 9.03 */
       /*Wait_Loop(6);*/
-      if(gcLg != 'A')
-        Wait_Loop(6);
-      else /* Message en Allemand -> temps de lecture + long */
-        Wait_Loop(9);
+//      if(gcLg != 'A')
+//        Wait_Loop(6);
+//      else /* Message en Allemand -> temps de lecture + long */
+//        Wait_Loop(9);
+// (Phil) Test mode: let's jump to reading back the vote
+      Wait_Loop(3);
+      giCodeVoteEnd=11;
+      ptfunct = Vote_End;
+      return(0);
 /* 9.03 >> */
       break;
     case CARD_GATE:
