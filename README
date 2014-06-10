@@ -67,7 +67,8 @@ WEB:
 
 Get dependencies
 ----------------
-apt-get install libx11-dev:i386
+E.g. on a Debian multiarch:
+apt-get install libc6-dev:i386 libx11-dev:i386
 
 Compile
 -------
